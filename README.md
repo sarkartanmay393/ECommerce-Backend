@@ -2,6 +2,11 @@
 
 This project is a RESTful API for e-commerce operations, designed to support product and category listing, cart management, and order processing. Built with Node.js and Express, it utilizes PostgreSQL for data persistence and JWT for user authentication.
 
+## Demo
+
+- API: http://ec2-65-1-148-245.ap-south-1.compute.amazonaws.com:8080/
+- Docs: http://ec2-65-1-148-245.ap-south-1.compute.amazonaws.com:8080/docs/
+
 ## Features
 
 - **User Authentication**: Register and log in users, issuing JWT for subsequent requests.
