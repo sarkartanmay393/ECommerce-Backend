@@ -71,16 +71,15 @@ app.get("/products/:productId", GetProductById);
 
 // Private Routes
 import AuthMiddleware from "./middlewares/auth";
-app.use(AuthMiddleware);
 // (Orders)
-app.post("/orders", PlaceNewOrder);
-app.get("/orders", GetOrderHistory);
-app.get("/orders/:orderId", GetOrderDetailsById);
+app.post("/orders", AuthMiddleware, PlaceNewOrder);
+app.get("/orders", AuthMiddleware, GetOrderHistory);
+app.get("/orders/:orderId", AuthMiddleware, GetOrderDetailsById);
 // (User Cart (Each user got one cart only))
-app.get("/cart", ViewChart);
-app.post("/cart", AddCartItem); // one at a time product
-app.delete("/cart", RemoveCartItem); // body got cartItem id
-app.put("/cart", UpdateCartItemQuantities); //body
+app.get("/cart", AuthMiddleware, ViewChart);
+app.post("/cart", AuthMiddleware, AddCartItem); // one at a time product
+app.delete("/cart", AuthMiddleware, RemoveCartItem); // body got cartItem id
+app.put("/cart", AuthMiddleware, UpdateCartItemQuantities); //body
 
 app.listen(PORT, async () => {
   try {
