@@ -7,7 +7,7 @@ import Cart from "../../models/Cart";
 
 /**
  * @swagger
- * /orders/history:
+ * /orders:
  *   get:
  *     summary: Retrieves the order history for a user
  *     description: Fetches all past orders placed by the user based on the user's ID passed through headers.

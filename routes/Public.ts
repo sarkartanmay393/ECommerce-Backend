@@ -40,7 +40,7 @@ export async function GetAllCatergories(_: ReqType, res: ResType) {
 
 /**
  * @swagger
- * /products/category/{categoryId}:
+ * /categories/{categoryId}:
  *   get:
  *     summary: Retrieves all products for a specific category
  *     description: Fetches a list of products and the count of products within a specified category ID.

@@ -47,7 +47,7 @@ export async function ViewChart(req: ReqType, res: ResType) {
 
 /**
  * @swagger
- * /cart/item:
+ * /cart:
  *   post:
  *     summary: Adds a new item to the user's cart
  *     description: Adds a new cart item for the user based on the product ID and quantity provided in the request body, and the user's ID passed through headers.
@@ -105,7 +105,7 @@ export async function AddCartItem(req: ReqType, res: ResType) {
 
 /**
  * @swagger
- * /cart/item:
+ * /cart:
  *   delete:
  *     summary: Removes an item from the user's cart
  *     description: Deletes a specific cart item based on the cart item ID provided in the request body and the user's ID passed through headers.
@@ -157,7 +157,7 @@ export async function RemoveCartItem(req: ReqType, res: ResType) {
 
 /**
  * @swagger
- * /cart/item/quantity:
+ * /cart
  *   put:
  *     summary: Updates the quantity of a cart item
  *     description: Updates the quantity of a specific cart item for the user based on the cart item ID and new quantity provided in the request body, and the user's ID passed through headers.
