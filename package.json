@@ -4,10 +4,8 @@
   "description": "",
   "scripts": {
     "dev": "nodemon server.ts",
-    "migration-up": "sequelize db:migrate",
-    "migration-down": "sequelize db:migrate:undo:all",
-    "populate-up": "sequelize db:seed:all",
-    "populate-down": "sequelize db:seed:undo:all"
+    "migration-up": "sequelize db:migrate && sequelize db:seed:all",
+    "migration-down": "sequelize db:migrate:undo:all"
   },
   "author": "",
   "license": "ISC",
@@ -20,7 +18,9 @@
     "jsonwebtoken": "^9.0.2",
     "nodemon": "^3.1.0",
     "pg": "^8.11.3",
-    "sequelize": "^6.37.1"
+    "sequelize": "^6.37.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
@@ -31,6 +31,8 @@
     "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "^20.11.20",
     "@types/pg": "^8.11.0",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.6",
     "sequelize-cli": "^6.6.2",
     "typescript": "^5.3.3"
   }

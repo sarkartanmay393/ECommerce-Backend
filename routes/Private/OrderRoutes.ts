@@ -5,6 +5,33 @@ import Product from "../../models/Product";
 import CartItem from "../../models/CartItem";
 import Cart from "../../models/Cart";
 
+/**
+ * @swagger
+ * /orders/history:
+ *   get:
+ *     summary: Retrieves the order history for a user
+ *     description: Fetches all past orders placed by the user based on the user's ID passed through headers.
+ *     parameters:
+ *       - in: header
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved the order history
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 orders:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Order'
+ *       500:
+ *         description: Server error
+ */
 export async function GetOrderHistory(req: ReqType, res: ResType) {
   const { userId } = req.headers;
 
@@ -18,6 +45,37 @@ export async function GetOrderHistory(req: ReqType, res: ResType) {
   }
 }
 
+/**
+ * @swagger
+ * /orders/{orderId}:
+ *   get:
+ *     summary: Retrieves details of a specific order
+ *     description: Fetches details of a specific order based on the order ID passed as a path parameter and the user's ID passed through headers.
+ *     parameters:
+ *       - in: path
+ *         name: orderId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: The ID of the order to retrieve
+ *       - in: header
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved the order details
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 order:
+ *                   $ref: '#/components/schemas/Order'
+ *       500:
+ *         description: Server error
+ */
 export async function GetOrderDetailsById(req: ReqType, res: ResType) {
   const { orderId } = req.params;
   const { userId } = req.headers;
@@ -34,6 +92,35 @@ export async function GetOrderDetailsById(req: ReqType, res: ResType) {
   }
 }
 
+/**
+ * @swagger
+ * /orders:
+ *   post:
+ *     summary: Places a new order for the user
+ *     description: Creates a new order with the items in the user's cart, calculates the total amount, clears the cart, and returns the new order details. The user's ID is passed through headers.
+ *     parameters:
+ *       - in: header
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: New order successfully created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 order:
+ *                   $ref: '#/components/schemas/Order'
+ *       400:
+ *         description: No cart items found to place an order
+ *       500:
+ *         description: Server error
+ */
 export async function PlaceNewOrder(req: ReqType, res: ResType) {
   const { userId } = req.headers;
 

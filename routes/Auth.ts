@@ -4,6 +4,57 @@ import User from "../models/User";
 import Cart from "../models/Cart";
 import { ReqType, ResType } from "../utils/types";
 
+/**
+ * @swagger
+ * /register:
+ *   post:
+ *     summary: Registers a new user
+ *     description: Creates a new user with a name, email, and password. Returns user data and a 201 status code on success.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - email
+ *               - password
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: Full name of the user
+ *               email:
+ *                 type: string
+ *                 description: Email address of the user
+ *                 format: email
+ *               password:
+ *                 type: string
+ *                 description: Password for the user account
+ *     responses:
+ *       201:
+ *         description: Registration successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 user:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                     name:
+ *                       type: string
+ *                     email:
+ *                       type: string
+ *       400:
+ *         description: Invalid request (missing parameters or user already exists)
+ *       500:
+ *         description: Server error
+ */
 export async function UserRegister(req: ReqType, res: ResType) {
   const { name, email, password } = req.body as any;
   if (!name) {
@@ -47,6 +98,53 @@ export async function UserRegister(req: ReqType, res: ResType) {
   }
 }
 
+/**
+ * @swagger
+ * /login:
+ *   post:
+ *     summary: Authenticates a user
+ *     description: Logs in a user by email and password. Returns a token and user data on success.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 description: Email address of the user
+ *                 format: email
+ *               password:
+ *                 type: string
+ *                 description: Password for the user account
+ *     responses:
+ *       200:
+ *         description: Login successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 user:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                     name:
+ *                       type: string
+ *                     email:
+ *                       type: string
+ *       400:
+ *         description: Invalid login credentials
+ *       500:
+ *         description: Server error
+ */
 export async function UserLogin(req: ReqType, res: ResType) {
   const { email, password } = req.body as any;
 
@@ -83,6 +181,25 @@ export async function UserLogin(req: ReqType, res: ResType) {
   }
 }
 
+/**
+ * @swagger
+ * /logout:
+ *   post:
+ *     summary: Logs out the current user
+ *     description: Clears the user's session cookie, effectively logging them out.
+ *     responses:
+ *       200:
+ *         description: Logout successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *       500:
+ *         description: Server error
+ */
 export async function UserLogout(req: ReqType, res: ResType) {
   try {
     res.clearCookie("token");

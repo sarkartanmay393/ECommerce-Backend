@@ -2,6 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import swaggerJSDoc, { Options, type SwaggerDefinition } from "swagger-jsdoc";
+import { serve, setup } from "swagger-ui-express";
 import { sequelize } from "./utils/database";
 import { UserLogin, UserLogout, UserRegister } from "./routes/Auth";
 import {
@@ -24,13 +26,39 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Swagger JSDoc
+const definations: SwaggerDefinition = {
+  openapi: "3.0.0",
+  info: {
+    title: "E-Commerce Express API",
+    version: "1.0.0",
+    contact: {
+      name: "Tanmay Sarkar",
+      url: "https://tanmaysarkar.vercel.app",
+    },
+  },
+  servers: [
+    {
+      url: "http://localhost:3000",
+      description: "Development server",
+    },
+  ],
+};
+const options: Options = {
+  apis: ["./routes/*.ts", "./routes/**/*.ts"],
+  swaggerDefinition: definations,
+};
+
+const swaggerSpec = swaggerJSDoc(options);
+
 // Middleware
 app.use(cors({ credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
+app.use("/docs", serve, setup(swaggerSpec));
 
 // Public Routes
-app.get("/", PublicPing);
+app.get("/ping", PublicPing);
 // (Authentication)
 app.post("/login", UserLogin);
 app.get("/logout", UserLogout);
