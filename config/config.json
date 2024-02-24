@@ -1,16 +1,17 @@
 {
   "development": {
-    "host": "localhost",
+    "username": "avnadmin",
+    "password": "",
     "database": "triveous",
-    "username": "postgres",
+    "host": "pg-1d02b618-sarkartanmay393-034b.a.aivencloud.com",
+    "port": 14056,
     "dialect": "postgres",
-    "password": null
-  },
-  "production": {
-    "host": "localhost",
-    "database": "triveous",
-    "username": "postgres",
-    "dialect": "postgres",
-    "password": null
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": true,
+        "ca": "-----BEGIN CERTIFICATE-----\nMIIEQTCCAqmgAwIBAgIUHGIlW5NYqQogYn26fGeGQ0O1MUEwDQYJKoZIhvcNAQEM\nBQAwOjE4MDYGA1UEAwwvYzllMGFjNTYtMGFmNi00MTYxLWFlZTQtYWZjMmRiMDcw\nZWNmIFByb2plY3QgQ0EwHhcNMjMxMTAyMTEzNjA1WhcNMzMxMDMwMTEzNjA1WjA6\nMTgwNgYDVQQDDC9jOWUwYWM1Ni0wYWY2LTQxNjEtYWVlNC1hZmMyZGIwNzBlY2Yg\nUHJvamVjdCBDQTCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAMbRO9aI\nDeDajQrcwGdiKUpjQWN0gosP1N5gERe1tbHBeRINIm9lkrvFn+fFuVw1zW9aD8cZ\niYejavGe3CG6EE1+li/rWVwN44AosIiy4pCJh9VKFlpuBSfwpoIj5Sct/rMKzgQo\ntFJBh2IaztNf7Py+m5l0S0NrE3rbMeqz/RVZ+S9yPIaB9EwwqM2+6L7e9AbClT1P\nDJW5x7C+KPTJj7GbJr1p0Tr862jdryclC59y8ZLcOAzZ1BR3kv6q/5ruRELgs07j\nJh54HDWz5w/vDzfWJHxOnhEW4bOvkrKnzv8XFQ8s49kJ1S5PYrier125o8F6Xrp+\nSUXkPgNhHTF3ESCPXFqoF1dlRacBzRG3btyAZqwaE37btXCe+JelGnPsfsEGgOxV\nJ+h/Ei6YWTuMQgddnAlASAu/MfxK8HT2K9AjVIhC2ka48uQKiVM2tMKy3QNeo104\n7vjqad+UIs1urVq/DwaNdAuXDRBgr5ekddO+jhuX/qlmbsCrWryaIbFoewIDAQAB\noz8wPTAdBgNVHQ4EFgQUYvyoiPEFhfoonz+PPn5QAuADdtMwDwYDVR0TBAgwBgEB\n/wIBADALBgNVHQ8EBAMCAQYwDQYJKoZIhvcNAQEMBQADggGBAJ1QRZYBUEEgopYy\nb7CvGz/qPGNYFaTC+Ou8hwj6LL6QWh75anMCyX38Jp1m49o1ulzhNgPlC4SKVqXa\nxirn7rhx0nOshRmaMEyAnBb3zyN5505PHhAN5JZ//hDez+hyAks8xC+ssqgTkdWv\nGV33fNbebygG4VqzlugVoNN9E9eKl6HYudpzCOtIaNAno+LYiPDrUSToo8M/UqUI\n5MsYj7SCemWVWpwx/+N/U41vZaARj5dFLy4eFq9t1rlfmPvn7JhsCK0vssnanMsz\nGaRqaRMVWpnpABTn2QE3hX52D8a5AIazrLL4G3Vma+bHApK1wLHUI6ViJnxHVIZg\n4lBnuFvpugybrAHISuWTyProw1BQngRwAlfvYyu6a/6FVdwHymtC0DfS7WvXxUHX\n97ui80dX2k5b3joHYLT6A3ucOJa3EGaUsZ1QVCHNG4sblLwAC9HzpfrlAOOVPd9i\nczSu9zsSnrd5YBNcKNMuHYWLRu/mdjr1mxGaMUukEGkIsWdXWA==\n-----END CERTIFICATE-----"
+      }
+    }
   }
 }
