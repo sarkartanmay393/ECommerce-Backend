@@ -41,7 +41,6 @@ This project is a RESTful API for e-commerce operations, designed to support pro
 
    ```
    npm run migration-up
-   npm run populate-up
    ```
 
 4. Create a `.env` file in the root directory and add your database configuration and JWT secret key:
@@ -59,7 +58,7 @@ This project is a RESTful API for e-commerce operations, designed to support pro
 
 ## Usage
 
-Refer to the Swagger documentation for detailed endpoint information. By default, the Swagger UI is accessible at `http://localhost:3000/api-docs`.
+Refer to the Swagger documentation for detailed endpoint information. By default, the Swagger UI is accessible at `http://localhost:3000/docs`.
 
 <!-- ## Running Tests
 
